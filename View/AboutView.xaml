@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YGOSearcher.View.AboutView"
+             xmlns:viewModels="clr-namespace:YGOSearcher.ViewModels"
+             x:DataType="viewModels:AboutViewModel"
+             Title="About">
+    <VerticalStackLayout Spacing="10" Margin="10" Padding="30">
+        <HorizontalStackLayout Spacing="10" Padding="30">
+            <Image Source="ygo_logo.png"
+                   SemanticProperties.Description="The dot net bot waving hello!"
+                   HeightRequest="64" />
+            <Label FontSize="22" FontAttributes="Bold" Text="{Binding Title}" VerticalOptions="End" />
+            <Label FontSize="22" Text="{Binding Version}" VerticalOptions="End" />
+        </HorizontalStackLayout>
+
+        <Label Text="{Binding Message}"/>
+        <Grid Padding="30" ColumnSpacing="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="Learn More!" Command="{Binding ShowMoreInfoCommand}"/>
+            <Button Grid.Column="1" Text="Refresh Database" Command="{Binding RefreshDatabaseCommand}"/>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
