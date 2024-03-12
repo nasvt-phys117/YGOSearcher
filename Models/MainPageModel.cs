@@ -23,8 +23,6 @@ public class MainPageModel
             System.Environment.Exit(1);
         }
 
-
-
         var cardResults = card.data.Where(x => x.name is not null && (x.name.Equals(filterText, StringComparison.OrdinalIgnoreCase)
         || x.name.StartsWith(filterText, StringComparison.OrdinalIgnoreCase) 
         || x.name.Contains(filterText, StringComparison.OrdinalIgnoreCase)) ).ToList();
@@ -41,12 +39,25 @@ public class MainPageModel
         {
             searchResultsOUT.Add(cardResults[i].name);
         }
-        if (searchResultsOUT is null)
+
+        return searchResultsOUT;
+    }
+
+    public static Datum GetCard(string cardName)
+    {
+
+        string jsonString = File.ReadAllText(GlobalsDB.mainDir + GlobalsDB.fileName);
+
+        Card? card = JsonSerializer.Deserialize<Card>(jsonString);
+
+        if (card is null)
         {
-            Console.WriteLine("List name is null!!!");
+            Console.WriteLine("File is empty!");
             System.Environment.Exit(1);
         }
 
-        return searchResultsOUT;
+        var resultCardQuery = card.data?.Where(x => x.name is not null && x.name.Equals(cardName));
+
+        return resultCardQuery.ElementAt(0);
     }
 }

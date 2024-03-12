@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YGOSearcher.View.CardDetailsView"
-             Title="CardDetailsView">
+             Title="CardDetailsView"
+             xmlns:viewModel="clr-namespace:YGOSearcher.ViewModels"
+             x:DataType="viewModel:CardDetailsViewModel">
     <Grid Padding="30" ColumnSpacing="20">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -16,32 +18,32 @@
             <Frame>
                 <HorizontalStackLayout Spacing="5">
                     <Label Text="Card Name: " FontAttributes="Bold"/>
-                    <Label Text="(placeholder) Kashtira Unicorn"/>
+                    <Label Text="{Binding Card.name}"/>
                 </HorizontalStackLayout>
             </Frame>
             <Frame>
                 <VerticalStackLayout>
                     <Label Text="Card Text: " FontAttributes="Bold"/>
-                    <Label Text="(placeholder) If you control no monsters, you can Special Summon this card (from your hand). You can only use each of the following effects of &quot;Kashtira Unicorn&quot; once per turn. During your Main Phase: You can add 1 &quot;Kashtira&quot; Spell from your Deck to your hand. When this card declares an attack, or if your opponent activates a monster effect (except during the Damage Step): You can look at your opponent's Extra Deck, and if you do, banish 1 monster from it, face-down."/>
+                    <Label Text="{Binding Card.desc}"/>
                 </VerticalStackLayout>
             </Frame>
             <HorizontalStackLayout Grid.Column="0" Padding="10" Spacing="10">
                 <Frame>
                     <HorizontalStackLayout Spacing="5">
                         <Label Text="Type: " FontAttributes="Bold"/>
-                        <Label Text="Psychic/Effect (placeholder)"/>
+                        <Label Text="{Binding Card.type}"/>
                     </HorizontalStackLayout>
                 </Frame>
                 <Frame>
                     <HorizontalStackLayout Spacing="5">
                         <Label Text="Attribute: " FontAttributes="Bold"/>
-                        <Label Text="Wind (placeholder)"/>
+                        <Label Text="{Binding Card.attribute}"/>
                     </HorizontalStackLayout>
                 </Frame>
                 <Frame>
                     <HorizontalStackLayout Spacing="5">
                         <Label Text="Level/Rank: " FontAttributes="Bold"/>
-                        <Label Text="7"/>
+                        <Label Text="{Binding Card.level}"/>
                     </HorizontalStackLayout>
                 </Frame>
             </HorizontalStackLayout>
@@ -49,13 +51,13 @@
                 <Frame>
                     <HorizontalStackLayout Spacing="5">
                         <Label Text="ATK: " FontAttributes="Bold"/>
-                        <Label Text="2500 (placeholder)"/>
+                        <Label Text="{Binding Card.atk}"/>
                     </HorizontalStackLayout>
                 </Frame>
                 <Frame>
                     <HorizontalStackLayout Spacing="5">
                         <Label Text="DEF: " FontAttributes="Bold"/>
-                        <Label Text="2100 (placeholder)"/>
+                        <Label Text="{Binding Card.def}"/>
                     </HorizontalStackLayout>
                 </Frame>
             </HorizontalStackLayout>

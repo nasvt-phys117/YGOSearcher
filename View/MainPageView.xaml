@@ -11,7 +11,10 @@
                    SearchCommand="{Binding PerformSearch}"
                    SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
         <ListView x:Name="searchResults"
-                  ItemsSource="{Binding SearchResults}" />
+                  ItemsSource="{Binding SearchResults}"
+                  SelectionMode="Single"
+                  ItemSelected="ItemSelected"
+                  />
     </StackLayout>
 
 </ContentPage>

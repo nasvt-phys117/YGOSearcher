@@ -5,10 +5,11 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using YGOSearcher.Models;
+using YGOSearcher.View;
 
 namespace YGOSearcher.ViewModels;
 
-public class MainPageViewModel : INotifyPropertyChanged
+public partial class MainPageViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -22,7 +23,7 @@ public class MainPageViewModel : INotifyPropertyChanged
         SearchResults = MainPageModel.SearchCard(query);
     });
 
-    private List<string> searchResults = new List<string>();
+    private List<string> searchResults = [];
     public List<string> SearchResults
     {
         get
@@ -36,34 +37,15 @@ public class MainPageViewModel : INotifyPropertyChanged
         }
     }
 
-    //[ObservableProperty]
-    //[NotifyPropertyChangedFor(nameof(filterText))]
-    //string text;
+    public Datum card = new();
 
-    //[ObservableProperty]
-    //List<string> searchResults;
-
-    //public string filterText => $"{text}";
-
-    //[RelayCommand]
-    //void performSearch()
-    //{
-    //    List<Card> results = MainPageModel.SearchCard(text);
-
-    //    if (results is not null )
-    //    {
-    //        if (results.Count < 5 )
-    //        {
-    //            for (int i = 0; i < results.Count; i++)
-    //                searchResults.Add(results[i].name);
-    //        }
-    //        else
-    //        {
-    //            for (int i = 0; i < 5; i++)
-    //                searchResults.Add(results[i].name);
-    //        }
-    //    }   
-    //}
-
-
+    public async Task TapCommand(string s)
+    {
+        card = MainPageModel.GetCard(s);
+        await Shell.Current.GoToAsync(nameof(CardDetailsView),
+            new Dictionary<string, object>
+            {
+                ["Card"] = card
+            }) ;
+    }
 }
