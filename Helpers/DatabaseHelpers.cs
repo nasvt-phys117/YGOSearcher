@@ -7,6 +7,8 @@ public static class GlobalsDB
     //download
     public const string fileName = "ygo_card_list.json";
 
+    internal static string database_path = mainDir + "\\" + fileName;
+
 }
 
 class DatabaseHelpers
@@ -27,8 +29,7 @@ class DatabaseHelpers
 
             string jsonContent = await response.Content.ReadAsStringAsync();
 
-            //File.WriteAllText(GlobalsDB.fileName, jsonContent);
-            File.WriteAllText(GlobalsDB.mainDir + GlobalsDB.fileName, jsonContent);
+            File.WriteAllText(GlobalsDB.database_path, jsonContent);
 
         }
         catch (Exception ex) { Console.WriteLine($"Error: {ex.Message}"); }

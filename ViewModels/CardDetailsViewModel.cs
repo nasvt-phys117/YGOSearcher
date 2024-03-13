@@ -10,5 +10,4 @@ public partial class CardDetailsViewModel : ObservableObject
 {
     [ObservableProperty]
     public Datum? card;
-
 }

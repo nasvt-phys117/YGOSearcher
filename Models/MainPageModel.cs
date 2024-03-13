@@ -8,7 +8,7 @@ public class MainPageModel
 
     public static List<string> SearchCard(string filterText)
     {
-        string jsonString = File.ReadAllText(GlobalsDB.mainDir + GlobalsDB.fileName);
+        string jsonString = File.ReadAllText(GlobalsDB.database_path);
 
         Card? card = JsonSerializer.Deserialize<Card>(jsonString);
 
@@ -46,7 +46,7 @@ public class MainPageModel
     public static Datum GetCard(string cardName)
     {
 
-        string jsonString = File.ReadAllText(GlobalsDB.mainDir + GlobalsDB.fileName);
+        string jsonString = File.ReadAllText(GlobalsDB.database_path);
 
         Card? card = JsonSerializer.Deserialize<Card>(jsonString);
 
