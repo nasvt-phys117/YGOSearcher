@@ -5,9 +5,9 @@ public static class GlobalsDB
     internal static string cacheDir = FileSystem.Current.CacheDirectory;
     internal static string mainDir = FileSystem.Current.AppDataDirectory;
     //download
-    public const string fileName = "ygo_card_list.json";
+    public const string db_json_fileName = "ygo_card_list.json";
 
-    internal static string database_path = mainDir + "\\" + fileName;
+    internal static string database_path = mainDir + "\\" + db_json_fileName;
 
 }
 
@@ -21,6 +21,10 @@ class DatabaseHelpers
     public static async Task RetrieveDatabase()
     {
         //check if the file is already here
+        if (File.Exists(GlobalsDB.database_path))
+            return;
+
+        //Download json from YGOProDeck
         try
         {
             

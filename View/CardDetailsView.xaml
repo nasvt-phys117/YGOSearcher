@@ -5,65 +5,57 @@
              Title="CardDetailsView"
              xmlns:viewModel="clr-namespace:YGOSearcher.ViewModels"
              x:DataType="viewModel:CardDetailsViewModel">
-    <Grid Padding="30" ColumnSpacing="20">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
 
-        <VerticalStackLayout Grid.Column="0" Padding="30" Spacing="10">
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Frame >
+            <HorizontalStackLayout Padding="10" Spacing="10">
+                <Label Text="Card Name: " FontAttributes="Bold"/>
+                <Label Text="{Binding Card.name}"/>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame>
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Text="Card Text: " FontAttributes="Bold"/>
+                <Label Text="{Binding Card.desc}"/>
+            </VerticalStackLayout>
+        </Frame>
+        <HorizontalStackLayout Padding="10" Spacing="10">
             <Frame>
                 <HorizontalStackLayout Spacing="5">
-                    <Label Text="Card Name: " FontAttributes="Bold"/>
-                    <Label Text="{Binding Card.name}"/>
+                    <Label Text="Type: " FontAttributes="Bold"/>
+                    <Label Text="{Binding Card.type}"/>
+                    <Label Text="\"/>
+                    <Label Text="{Binding Card.race}"/>
                 </HorizontalStackLayout>
             </Frame>
             <Frame>
-                <VerticalStackLayout>
-                    <Label Text="Card Text: " FontAttributes="Bold"/>
-                    <Label Text="{Binding Card.desc}"/>
-                </VerticalStackLayout>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="Attribute: " FontAttributes="Bold"/>
+                    <Label Text="{Binding Card.attribute}"/>
+                </HorizontalStackLayout>
             </Frame>
-            <HorizontalStackLayout Grid.Column="0" Padding="10" Spacing="10">
-                <Frame>
-                    <HorizontalStackLayout Spacing="5">
-                        <Label Text="Type: " FontAttributes="Bold"/>
-                        <Label Text="{Binding Card.type}"/>
-                    </HorizontalStackLayout>
-                </Frame>
-                <Frame>
-                    <HorizontalStackLayout Spacing="5">
-                        <Label Text="Attribute: " FontAttributes="Bold"/>
-                        <Label Text="{Binding Card.attribute}"/>
-                    </HorizontalStackLayout>
-                </Frame>
-                <Frame>
-                    <HorizontalStackLayout Spacing="5">
-                        <Label Text="Level/Rank: " FontAttributes="Bold"/>
-                        <Label Text="{Binding Card.level}"/>
-                    </HorizontalStackLayout>
-                </Frame>
-            </HorizontalStackLayout>
-            <HorizontalStackLayout Grid.Column="0" Padding="10" Spacing="10">
-                <Frame>
-                    <HorizontalStackLayout Spacing="5">
-                        <Label Text="ATK: " FontAttributes="Bold"/>
-                        <Label Text="{Binding Card.atk}"/>
-                    </HorizontalStackLayout>
-                </Frame>
-                <Frame>
-                    <HorizontalStackLayout Spacing="5">
-                        <Label Text="DEF: " FontAttributes="Bold"/>
-                        <Label Text="{Binding Card.def}"/>
-                    </HorizontalStackLayout>
-                </Frame>
-            </HorizontalStackLayout>
+            <Frame>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="Level/Rank: " FontAttributes="Bold"/>
+                    <Label Text="{Binding Card.level}"/>
+                </HorizontalStackLayout>
+            </Frame>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout  Padding="10" Spacing="10">
+            <Frame>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="ATK: " FontAttributes="Bold"/>
+                    <Label Text="{Binding Card.atk}"/>
+                </HorizontalStackLayout>
+            </Frame>
+            <Frame>
+                <HorizontalStackLayout Spacing="5">
+                    <Label Text="DEF: " FontAttributes="Bold"/>
+                    <Label Text="{Binding Card.def}"/>
+                </HorizontalStackLayout>
+            </Frame>
+        </HorizontalStackLayout>
 
-        </VerticalStackLayout>
-        <Image Grid.Column="1" Grid.Row="0" Source="p_68304193.jpg"/>
-    </Grid>
+    </VerticalStackLayout>
 
 </ContentPage>

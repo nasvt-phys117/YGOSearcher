@@ -8,13 +8,14 @@
 
     <StackLayout>
         <SearchBar x:Name="searchBar"
+                   Scale=".8"
                    SearchCommand="{Binding PerformSearch}"
                    SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
         <ListView x:Name="searchResults"
                   ItemsSource="{Binding SearchResults}"
                   SelectionMode="Single"
-                  ItemSelected="ItemSelected"
-                  />
+                  ItemSelected="ItemSelected">
+        </ListView>
     </StackLayout>
 
 </ContentPage>
