@@ -63,7 +63,7 @@
             </HorizontalStackLayout>
 
         </VerticalStackLayout>
-        <Image Grid.Column="1" Grid.Row="0" Source="p_68304193.jpg"/>
+        <Image Grid.Column="1" Grid.Row="0" Source="{Binding ImagePath}"/>
     </Grid>
 
 </ContentPage>

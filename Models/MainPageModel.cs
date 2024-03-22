@@ -43,8 +43,10 @@ public class MainPageModel
         return searchResultsOUT;
     }
 
-    public static Datum GetCard(string cardName)
+    public static Datum? GetCard(string cardName)
     {
+        if (cardName == " ")
+            return null;
 
         string jsonString = File.ReadAllText(GlobalsDB.database_path);
 
@@ -57,7 +59,6 @@ public class MainPageModel
         }
 
         var resultCardQuery = card.data?.Where(x => x.name is not null && x.name.Equals(cardName));
-
         return resultCardQuery.ElementAt(0);
     }
 }

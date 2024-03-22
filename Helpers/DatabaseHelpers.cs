@@ -1,4 +1,7 @@
-﻿namespace YGOSearcher.Helpers;
+﻿using System.Net;
+using YGOSearcher.Models;
+
+namespace YGOSearcher.Helpers;
 
 public static class GlobalsDB
 {
@@ -35,5 +38,19 @@ class DatabaseHelpers
         catch (Exception ex) { Console.WriteLine($"Error: {ex.Message}"); }
     }
 
+    public static void GetCardImage(Datum card)
+    {
+        int? cardID = card.id;
 
+        string image_path = $"{GlobalsDB.cacheDir}/p_{cardID}.jpg";
+
+        if (File.Exists(image_path))
+            return;
+
+        string imageURL = card.card_images[0].image_url;
+        
+        using WebClient client = new();
+        client.DownloadFileAsync(new Uri(imageURL), image_path);
+
+    }
 }

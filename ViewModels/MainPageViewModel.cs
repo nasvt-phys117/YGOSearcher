@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using YGOSearcher.Helpers;
 using YGOSearcher.Models;
 using YGOSearcher.View;
 
@@ -42,10 +43,12 @@ public partial class MainPageViewModel : INotifyPropertyChanged
     public async Task TapCommand(string s)
     {
         card = MainPageModel.GetCard(s);
+        DatabaseHelpers.GetCardImage(card);
         await Shell.Current.GoToAsync(nameof(CardDetailsView),
             new Dictionary<string, object>
             {
-                ["Card"] = card
+                ["Card"] = card,
+                ["ImagePath"] = $"{GlobalsDB.cacheDir}/p_{card.id}.jpg"
             }) ;
     }
 }

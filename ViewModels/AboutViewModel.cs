@@ -1,10 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using YGOSearcher.Helpers;
-using Microsoft.Maui.Controls;
-using System.Windows.Input;
-using YGOSearcher.View;
-using System.Runtime.CompilerServices;
 
 namespace YGOSearcher.ViewModels;
 

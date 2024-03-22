@@ -1,13 +1,19 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.ComponentModel;
+using YGOSearcher.Helpers;
 using YGOSearcher.Models;
 
 namespace YGOSearcher.ViewModels;
 
 
 [QueryProperty(nameof(Card), nameof(Card))]
+[QueryProperty(nameof(ImagePath), nameof(ImagePath))]
 public partial class CardDetailsViewModel : ObservableObject
 {
     [ObservableProperty]
-    public Datum? card;
+    Datum? card;
+
+
+    [ObservableProperty]
+    string? imagePath;
+
 }
