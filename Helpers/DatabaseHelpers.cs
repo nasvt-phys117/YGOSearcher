@@ -40,6 +40,9 @@ class DatabaseHelpers
 
     public static void GetCardImage(Datum card)
     {
+        if (card == null)
+            return;
+
         int? cardID = card.id;
 
         string image_path = $"{GlobalsDB.cacheDir}/p_{cardID}.jpg";

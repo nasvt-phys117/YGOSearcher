@@ -6,8 +6,9 @@
              x:DataType="viewModel:MainPageViewModel"
              Title="Main">
 
-    <StackLayout>
+    <VerticalStackLayout Margin="10" Padding="25" HorizontalOptions="Center" WidthRequest="300">
         <SearchBar x:Name="searchBar"
+                   Placeholder="Search for a card or effect"
                    SearchCommand="{Binding PerformSearch}"
                    SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"/>
         <ListView x:Name="searchResults"
@@ -15,6 +16,6 @@
                   SelectionMode="Single"
                   ItemSelected="ItemSelected"
                   />
-    </StackLayout>
+    </VerticalStackLayout>
 
 </ContentPage>

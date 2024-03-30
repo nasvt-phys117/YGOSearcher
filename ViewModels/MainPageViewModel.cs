@@ -42,6 +42,7 @@ public partial class MainPageViewModel : INotifyPropertyChanged
 
     public async Task TapCommand(string s)
     {
+        if (s is null) return;
         card = MainPageModel.GetCard(s);
         DatabaseHelpers.GetCardImage(card);
         await Shell.Current.GoToAsync(nameof(CardDetailsView),

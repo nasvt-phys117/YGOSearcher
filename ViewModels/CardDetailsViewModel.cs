@@ -15,5 +15,4 @@ public partial class CardDetailsViewModel : ObservableObject
 
     [ObservableProperty]
     string? imagePath;
-
 }
