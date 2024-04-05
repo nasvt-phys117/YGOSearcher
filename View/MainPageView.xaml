@@ -4,9 +4,9 @@
              x:Class="YGOSearcher.View.MainPageView"
              xmlns:viewModel="clr-namespace:YGOSearcher.ViewModels"
              x:DataType="viewModel:MainPageViewModel"
-             Title="Main">
+             Title="Search">
 
-    <VerticalStackLayout Margin="10" Padding="25" HorizontalOptions="Center" WidthRequest="300">
+    <VerticalStackLayout Margin="10" Padding="25" HorizontalOptions="Center">
         <SearchBar x:Name="searchBar"
                    Placeholder="Search for a card or effect"
                    SearchCommand="{Binding PerformSearch}"
