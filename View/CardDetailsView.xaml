@@ -2,39 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YGOSearcher.View.CardDetailsView"
-             Title="CardDetailsView"
+             Title="Card Details"
              xmlns:viewModel="clr-namespace:YGOSearcher.ViewModels"
              x:DataType="viewModel:CardDetailsViewModel">
     <ScrollView Padding="20">
         <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*,*">
-        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding ImagePath}"  HeightRequest="400"/>
+            <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1" Source="{Binding ImagePath}"  HeightRequest="200"/>
 
-        <!--<Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding ImagePath}" Aspect="Fill" HeightRequest="400"/>-->
+            <!--<Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding ImagePath}" Aspect="Fill" HeightRequest="400"/>-->
 
-        <!--Card Info-->
-        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="20" HasShadow="True" Margin="20,-15,20,10" BackgroundColor="#f9f9f9" HeightRequest="150">
-            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center" HorizontalOptions="FillAndExpand" RowSpacing="10" Padding="20,5">
-                <!-- General information-->
-                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Card.name}" FontAttributes="Bold" FontSize="21" TextColor="Black"/>
-                <Image Grid.Row="0" Grid.Column="2" Source="sword_line.png" Aspect="AspectFit" HorizontalOptions="End" WidthRequest="22" HeightRequest="22"/>
-                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Card.type}" TextColor="#797979" FontSize="17" />
-                <Label Grid.Row="2" Grid.Column="0" Text="{Binding Card.race}" TextColor="#797979" FontSize="17" />
-                <Image Grid.Row="1" Grid.Column="1" Source="sword_line.png"  Aspect="AspectFit"  WidthRequest="22" HeightRequest="22" HorizontalOptions="End"/>
-                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Card.atk}" TextColor="#797979" FontSize="15" HorizontalTextAlignment="End" />
-                <Image Grid.Row="2" Grid.Column="1" Source="shield_line.png" Aspect="AspectFit"  WidthRequest="22" HeightRequest="22" HorizontalOptions="End" />
-                <Label Grid.Row="2" Grid.Column="2" Text="{Binding Card.def}" TextColor="#797979" FontSize="15" HorizontalTextAlignment="End" />
+            <!--Card Info-->
+            <Frame Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" CornerRadius="10" HasShadow="True" Margin="10,0,0,0" BackgroundColor="#f9f9f9" HeightRequest="170">
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="Auto,*,Auto" VerticalOptions="Center" HorizontalOptions="FillAndExpand" RowSpacing="1" >
+                    <!-- General information-->
+                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Text="{Binding Card.name}" FontAttributes="Bold" FontSize="15" TextColor="Black"/>
+                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Card.type}" TextColor="#797979" FontSize="14" />
+                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding Card.race}" TextColor="#797979" FontSize="14" />
+                    <Image Grid.Row="1" Grid.Column="1" Source="sword_line.png"  Aspect="AspectFit"  WidthRequest="22" HeightRequest="22" HorizontalOptions="End"/>
+                    <Label Grid.Row="1" Grid.Column="2" Text="{Binding Card.atk}" TextColor="#797979" FontSize="15" HorizontalTextAlignment="End" />
+                    <Image Grid.Row="2" Grid.Column="1" Source="shield_line.png" Aspect="AspectFit"  WidthRequest="22" HeightRequest="22" HorizontalOptions="End" />
+                    <Label Grid.Row="2" Grid.Column="2" Text="{Binding Card.def}" TextColor="#797979" FontSize="15" HorizontalTextAlignment="End" />
                 </Grid>
-        </Frame>
+            </Frame>
 
-        <!-- Main name, roles and date -->
+            <!-- Main name, roles and date -->
             <Label Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" Text="Card Text" TextColor="Black" FontAttributes="Bold" Margin="30,50,0,-20"/>
 
             <!-- Description-->
             <Label HorizontalOptions="Start" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="{OnPlatform Android='35,20,35,15', iOS='35,20,35,0'}" Padding="30" TextColor="DarkSlateGrey" Text="{Binding Card.desc}" FontSize="15"/>
 
             <!--Buttons-->
-        <Button Grid.Row="5" Grid.Column="0" TextColor="Black" Text="♡" BackgroundColor="White" BorderColor="Silver" BorderWidth="1" WidthRequest="50" HeightRequest="50" CornerRadius="25" HorizontalOptions="End" />
-        <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Text="Add to Deck" FontAttributes="Bold" CornerRadius="22" TextColor="Black" BackgroundColor="#fbce56" Margin="20,0,40,0" />
-    </Grid>
+            <Button Grid.Row="5" Grid.Column="0" TextColor="Black" Text="♡" BackgroundColor="White" BorderColor="Silver" BorderWidth="1" WidthRequest="50" HeightRequest="50" CornerRadius="25" HorizontalOptions="End" />
+            <Button Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Text="Add to Deck" FontAttributes="Bold" CornerRadius="22" TextColor="Black" BackgroundColor="#fbce56" Margin="20,0,40,0" />
+        </Grid>
     </ScrollView>
 </ContentPage>
